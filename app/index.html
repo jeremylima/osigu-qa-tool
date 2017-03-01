@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>QA template to Jira convert</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7/js/bootstrap.min.js" rel="stylesheet">
+
+    <script language="JavaScript" type="text/javascript" src="../bootstrap-3.3.7/js/jquery-3.1.1.min.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="example.css" rel="stylesheet">-->
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tb">
+
+
+                <tr-header>
+                    <th class="text-center">
+                        #
+                    </th>
+                    <th class="text-center">
+                        Scenario
+                    </th>
+                    <th class="text-center">
+                        Input Data
+                    </th>
+                    <th class="text-center">
+                        Acceptance Criteria
+                    </th>
+                    <th class="text-center">
+                        Status
+                    </th>
+                    <th class="text-center">
+                        Comments
+                    </th>
+                    <th>
+                        <a href="javascript:void(0);" style="font-size:18px;" id="addMore" title="Add row"><span
+                                class="glyphicon glyphicon-plus pull-right"></span></a>
+                    </th>
+                </tr-header>
+                <tbody>
+                <tr class="tablerow">
+                    <td>
+                        1
+                    </td>
+                    <td>
+                        <textarea name='scenario' placeholder='Scenario Name' class="form-control"></textarea>
+                    </td>
+                    <td>
+
+                        <textarea name='inputData' placeholder='Input Data' class="form-control"></textarea>
+                    </td>
+                    <td>
+
+                        <div class="form-group form-group-multiple-selectsp">
+                            <div class="input-group input-group-multiple-selectp">
+                                <select id="acceptanceCriteriaSelect" class="form-control" name="values[]">
+                                    <option >200 OK</option>
+                                    <option >403 Forbidden</option>
+                                    <option >404 Not found</option>
+                                </select>
+                                <span class="input-group-addon input-group-addon-remove">
+    				                <span id="acceptanceCriteriaStatus" class="btn btn-success btn-circle"></span>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <textarea name='acceptanceCriteria' placeholder='Acceptance Criteria'
+                                  class="form-control"></textarea>
+                    </td>
+                    <td>
+                        <select name='status' placeholder='Status' class="form-control">
+                            <option id="statusSuccess">Successful</option>
+                            <option id="statusPending">Pending</option>
+                            <option id="statusError">Failure</option>
+                        </select>
+                    </td>
+                    <td>
+                        <textarea name='comments[]' placeholder='Comments' class="form-control"></textarea>
+                    </td>
+                    <td>
+                        <a href='javascript:void(0);' class='clone' title="Clone row"><span
+                                class='glyphicon glyphicon-copyright-mark'></span></a>
+                        <a href='javascript:void(0);' class='remove' title="Remove row"><span
+                                class='glyphicon glyphicon-remove' style="color:red"></span></a>
+                    </td>
+
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a id="add_row" class="btn btn-default pull-left">Add Row</a>
+    <a href='javascript:void(0);' id="copyToClipboard" class="btn btn-default pull-center">Copy</a>
+    <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+</div>
+
+<script type="text/javascript" src="../scripts/main.js"></script>
+</body>
+</html>
