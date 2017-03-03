@@ -1,4 +1,8 @@
+var rowId = 0;
+
 $(document).ready(function() {
+
+
     $('#addMore').on('click', function() {
         addRow();
     });
@@ -15,58 +19,17 @@ $(document).ready(function() {
         copyToClipboard();
     });
 
-    $('#acceptanceCriteriaSelect').change(function() {
-        updateAcceptanceCriteriaStatus(this.value);
+    $(document).on('change', '.myAcceptanceCriteriaSelect', function() {
+        updateAcceptanceCriteriaButton(this);
+
+    });
+
+    $(document).on('change', '.myStatusSelect', function() {
+        updateStatusButton(this);
+
     });
 
 });
-
-function updateAcceptanceCriteriaStatus(val) {
-    $( "#acceptanceCriteriaStatus" ).removeClass("btn-success btn-danger btn-warning");
-
-    var statusClass = "";
-    /*if (str.indexOf("Yes") >= 0)*/
-    if(val.indexOf("200")>=0){
-        statusClass = "btn-success";
-    }else if(val.indexOf("403")>=0){
-        statusClass = "btn-warning";
-    }else{
-        statusClass = "btn-danger";
-    }
-    $( "#acceptanceCriteriaStatus" ).addClass(statusClass);
-}
-
-function setRowNumber() {
-    $('.tablerow').each(function(i) {
-        $("td:first", this).html(i + 1);
-    });
-}
-
-function addRow() {
-    var tr = $("#tb tr:last");
-    var clone = tr.clone();
-    clone.find(':text').val('');
-    tr.after(clone);
-
-    setRowNumber();
-}
-
-function removeRow(row) {
-    var rowCount = $('#tb tr').length;
-    if (rowCount > 2) {
-        $(row).closest("tr").remove();
-        setRowNumber();
-    } else {
-        alert("Sorry!! Can't remove the last row!");
-    }
-}
-
-function cloneRow(row) {
-    var tr = $(row).closest("tr");
-    var clone = tr.clone();
-    tr.after(clone);
-    setRowNumber();
-}
 
 function copyToClipboard() {
     var table = document.getElementById('tb');

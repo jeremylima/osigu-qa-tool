@@ -10,9 +10,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="../bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7/css/main.css" rel="stylesheet">
+    <link href="../bootstrap-3.3.7/css/toastr.min.css" rel="stylesheet">
+
     <link href="../bootstrap-3.3.7/js/bootstrap.min.js" rel="stylesheet">
 
+
     <script language="JavaScript" type="text/javascript" src="../bootstrap-3.3.7/js/jquery-3.1.1.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="../bootstrap-3.3.7/js/toastr.min.js"></script>
 
 
     <!-- Custom styles for this template -->
@@ -51,7 +56,7 @@
                     </th>
                 </tr-header>
                 <tbody>
-                <tr class="tablerow">
+                <tr class="tablerow" id="row0">
                     <td>
                         1
                     </td>
@@ -59,35 +64,49 @@
                         <textarea name='scenario' placeholder='Scenario Name' class="form-control"></textarea>
                     </td>
                     <td>
-
-                        <textarea name='inputData' placeholder='Input Data' class="form-control"></textarea>
+                        <div>
+                            <textarea class="form-control form-group" name='inputData' placeholder='Input Data' ></textarea>
+                        </div>
+                        <div>
+                            <textarea class="form-control form-group" name='Payload' placeholder='Payload' ></textarea>
+                        </div>
                     </td>
                     <td>
 
                         <div class="form-group form-group-multiple-selectsp">
                             <div class="input-group input-group-multiple-selectp">
-                                <select id="acceptanceCriteriaSelect" class="form-control" name="values[]">
+                                <select id="acceptanceCriteriaSelect0" class="form-control myAcceptanceCriteriaSelect" name="values[]">
                                     <option >200 OK</option>
                                     <option >403 Forbidden</option>
                                     <option >404 Not found</option>
+                                    <option >Nothing</option>
                                 </select>
                                 <span class="input-group-addon input-group-addon-remove">
-    				                <span id="acceptanceCriteriaStatus" class="btn btn-success btn-circle"></span>
+    				                <span id="acceptanceCriteriaButton0" class="btn btn-success btn-circle myAcceptanceCriteriaButton"></span>
+                                </span>
+                            </div>
+
+
+                        </div>
+                        <div>
+                            <textarea class="form-control form-group" name='acceptanceCriteria' placeholder='Acceptance Criteria' ></textarea>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="form-group form-group-multiple-selectsp">
+                            <div class="input-group input-group-multiple-selectp">
+                                <select id="statusSelect0" class="form-control myStatusSelect" name="values[]">
+                                    <option >Successful</option>
+                                    <option >Pending</option>
+                                    <option >Failure</option>
+                                </select>
+                                <span class="input-group-addon input-group-addon-remove">
+    				                <span id="statusButton0" class="btn btn-success btn-circle myStatusButton"></span>
                                 </span>
                             </div>
                         </div>
 
-
-                        <br>
-                        <textarea name='acceptanceCriteria' placeholder='Acceptance Criteria'
-                                  class="form-control"></textarea>
-                    </td>
-                    <td>
-                        <select name='status' placeholder='Status' class="form-control">
-                            <option id="statusSuccess">Successful</option>
-                            <option id="statusPending">Pending</option>
-                            <option id="statusError">Failure</option>
-                        </select>
                     </td>
                     <td>
                         <textarea name='comments[]' placeholder='Comments' class="form-control"></textarea>
@@ -99,7 +118,9 @@
                                 class='glyphicon glyphicon-remove' style="color:red"></span></a>
                     </td>
 
-                </tr>
+                <!--</tr>
+                <tr class="tablerow" id="row1">
+                </tr>-->
 
                 </tbody>
             </table>
@@ -111,5 +132,7 @@
 </div>
 
 <script type="text/javascript" src="../scripts/main.js"></script>
+<script type="text/javascript" src="../scripts/rowOperations.js"></script>
+<script type="text/javascript" src="../scripts/selectsFunctionality.js"></script>
 </body>
 </html>
